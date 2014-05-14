@@ -1,0 +1,15 @@
+1. Import database.sql into your MySQL database
+2. Add updates to ota-available_updates using phpmyadmin or other means
+	ID: Leave blank, will auto increment
+	Version: Build number of your ROM. We use the basver.xxx for our system.
+	TestBuild: If set to 1, only test devices can get it. If set to 0, all devices can get it.
+	MinorUpdate: Not used by script. For Self Noting if its a full ROM, or a patch OTA.
+	Requires: Set to what Version is required before this OTA is available. Used for meeting recovery dependencies.
+	Timestamp: Unix Timestamp, used for the rollout process. Set to 0 or a REALLY low number to force a mass rollout.
+	DownloadURL: URL to the update ZIP you want pushed to devices.
+3. Add test devices to ota-devices using phpmyadmin or other means
+	ID: Leave blank, will auto increment
+	user: Not used by script. For self noting who ownes a serial # hash.
+	Serial: Sha1Sum of a Chromecast's Serial #
+2. Set your MySQL Server Settings in variables.php
+4. Enjoy
